@@ -1,4 +1,3 @@
-// src/pages/Dashboard/Stats.jsx
 import React, { useContext } from 'react';
 import { DashboardContext } from '../../context/DashboardContext';
 import { Line } from 'react-chartjs-2';
@@ -14,7 +13,7 @@ import {
   Legend,
 } from 'chart.js';
 
-// Register the required components
+// Register the required components for the chart
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -38,13 +37,13 @@ const Stats = () => {
       const datePart = dateStr.split(' ')[0]; // Extract the date part (YYYY-MM-DD)
       const yearMonth = datePart.slice(0, 7); // Format: YYYY-MM
 
-      if (row[1] && row[1].toLowerCase().includes('tuberculosis') || row[1] && row[1].toLowerCase().includes('tb') ) {
+      if (row[1] && (row[1].toLowerCase().includes('tuberculosis') || row[1].toLowerCase().includes('tb'))) {
         counts.Tuberculosis += 1;
-        dates.Tuberculosis[yearMonth] = (dates.Tuberculosis[yearMonth] || 0) + 1; // Increment count
+        dates.Tuberculosis[yearMonth] = (dates.Tuberculosis[yearMonth] || 0) + 1;
       }
       if (row[1] && row[1].toLowerCase().includes('flu')) {
         counts.Flu += 1;
-        dates.Flu[yearMonth] = (dates.Flu[yearMonth] || 0) + 1; // Increment count
+        dates.Flu[yearMonth] = (dates.Flu[yearMonth] || 0) + 1;
       }
     });
 
@@ -61,30 +60,34 @@ const Stats = () => {
     datasets: [
       {
         label: 'Tuberculosis Cases',
-        data: chartLabels.map(month => dates.Tuberculosis[month] || 0), // Count for each month
-        borderColor: 'rgba(75, 192, 192, 1)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        data: chartLabels.map(month => dates.Tuberculosis[month] || 0),
+        borderColor: '#00DEFC', // Primary color
+        backgroundColor: 'rgba(0, 222, 252, 0.2)',
         fill: true,
+        tension: 0.4, // Smooth the line for a modern look
       },
       {
         label: 'Flu Cases',
-        data: chartLabels.map(month => dates.Flu[month] || 0), // Count for each month
-        borderColor: 'rgba(255, 99, 132, 1)',
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        data: chartLabels.map(month => dates.Flu[month] || 0),
+        borderColor: '#B2B2B2', // Text color for consistency
+        backgroundColor: 'rgba(178, 178, 178, 0.2)',
         fill: true,
+        tension: 0.4,
       },
     ],
   };
 
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-xl font-semibold mb-4">Statistics</h2>
-      <p className="font-bold">Tuberculosis Cases: <span className="text-blue-600">{counts.Tuberculosis}</span></p>
-      <p className="font-bold">Flu Cases: <span className="text-green-600">{counts.Flu}</span></p>
+    <div className="p-6 bg-secondary text-text shadow-xl rounded-lg">
+      <h2 className="text-2xl font-semibold mb-4 text-primary">Statistics</h2>
+      <div className="flex space-x-4 mb-6">
+        <p className="font-bold">Tuberculosis Cases: <span className="text-accent">{counts.Tuberculosis}</span></p>
+        <p className="font-bold">Flu Cases: <span className="text-accent">{counts.Flu}</span></p>
+      </div>
 
-      {/* Render the chart */}
-      <div className="mt-6">
-        <Line data={chartData} />
+      {/* Render the chart, adjusted for 70% viewport height */}
+      <div className="w-full h-[70vh] mt-6 bg-secondary-light p-4 rounded-lg shadow-md">
+        <Line data={chartData} options={{ maintainAspectRatio: false }} />
       </div>
     </div>
   );

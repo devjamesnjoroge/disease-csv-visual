@@ -4,14 +4,16 @@ import Footer from '../components/Footer';
 
 function Privacy() {
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="bg-secondary min-h-screen flex flex-col text-accent">
       <Navbar />
 
       <main className="flex-grow max-w-6xl mx-auto px-4 py-12 space-y-12">
-        <h2 className="text-3xl font-bold text-green-700 text-center mb-6">Privacy Policy</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-6">
+          Privacy Policy
+        </h2>
         
         {/* Privacy Content */}
-        <section className="text-lg text-gray-700 space-y-6">
+        <section className="text-lg md:text-xl text-text space-y-6 max-w-3xl mx-auto leading-relaxed">
           <p>
             Your privacy is important to us. This policy outlines the data we collect, how it is used, and your rights regarding your data.
           </p>
