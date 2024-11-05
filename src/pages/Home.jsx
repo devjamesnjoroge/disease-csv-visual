@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import analysisImage from '../assets/hex-pattern.jpg';
+import contributor1 from '../assets/contributors2.jpg'; // Import contributor images
+import contributor2 from '../assets/contributors1.jpg';
 
 function Home() {
   return (
@@ -40,6 +43,65 @@ function Home() {
             <p>
               With accessible visualizations and downloadable data, this tool is ideal for healthcare professionals, researchers, and public health stakeholders.
             </p>
+          </div>
+        </section>
+
+        {/* Contributors Section */}
+        <section className="space-y-8">
+          <h2 className="text-3xl font-bold text-accent text-center">Meet Our Contributors</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img 
+                src={contributor1} 
+                alt="Amani" 
+                className="rounded-t-lg w-full h-64 object-cover" 
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">Amani</h3>
+                <p className="text-gray-600">Hey, this is Amani</p>
+                <div className="mt-2 flex space-x-4">
+                  <a 
+                    href="https://github.com/AmaniWanene" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-blue-500 hover:underline flex items-center">
+                    <FaGithub className="mr-1" /> GitHub
+                  </a>
+                  <a 
+                    href="mailto:amanigichanga@gmail.com" 
+                    className="text-blue-500 hover:underline flex items-center">
+                    Email
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img 
+                src={contributor2} 
+                alt="Evans" 
+                className="rounded-t-lg w-full h-64 object-cover" 
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">Evans</h3>
+                <p className="text-gray-600">Hey, this is Evans</p>
+                <div className="mt-2 flex space-x-4">
+                  <a 
+                    href="https://www.linkedin.com/in/evans-mogere-89396911b/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-blue-500 hover:underline flex items-center">
+                    <FaLinkedin className="mr-1" /> LinkedIn
+                  </a>
+                  <a 
+                    href="https://github.com/EvansOyugi" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-blue-500 hover:underline flex items-center">
+                    <FaGithub className="mr-1" /> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
