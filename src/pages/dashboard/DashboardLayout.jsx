@@ -4,9 +4,9 @@ import { Outlet } from 'react-router-dom';
 
 const DashboardLayout = () => {
   return (
-    <div className="flex bg-secondary">
+    <div className="flex flex-col lg:flex-row bg-secondary min-h-screen">
       <Sidebar />
-      <main className="ml-64 p-8 w-full overflow-y-auto bg-accent text-secondary shadow-lg">
+      <main className="flex-1 p-8 bg-accent text-secondary shadow-lg lg:ml-64 lg:overflow-y-auto">
         <Outlet />
       </main>
     </div>
