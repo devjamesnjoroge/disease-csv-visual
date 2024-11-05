@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import analysisImage from '../assets/hex-pattern.jpg';
-import contributor1 from '../assets/contributors2.jpg'; // Import contributor images
+import contributor1 from '../assets/contributors2.jpg';
 import contributor2 from '../assets/contributors1.jpg';
 
 function Home() {
