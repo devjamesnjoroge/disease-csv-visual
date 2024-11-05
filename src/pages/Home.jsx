@@ -6,6 +6,8 @@ import Footer from '../components/Footer';
 import analysisImage from '../assets/hex-pattern.jpg';
 import contributor1 from '../assets/contributors2.jpg';
 import contributor2 from '../assets/contributors1.jpg';
+import contributor3 from '../assets/contributors3.jpg';
+
 
 function Home() {
   return (
@@ -98,6 +100,38 @@ function Home() {
                     rel="noopener noreferrer" 
                     className="text-blue-500 hover:underline flex items-center">
                     <FaGithub className="mr-1" /> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
+              <img 
+                src={contributor3} 
+                alt="Faith" 
+                className="rounded-t-lg w-full h-64 object-cover" 
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">Faith</h3>
+                <p className="text-gray-600">Hey, this is Faith</p>
+                <div className="mt-2 flex space-x-4">
+                  <a 
+                    href="https://www.linkedin.com/in/faith-wangui-7a85862b8" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-blue-500 hover:underline flex items-center">
+                    <FaLinkedin className="mr-1" /> LinkedIn
+                  </a>
+                  <a 
+                    href="https://github.com/faith-watene" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-blue-500 hover:underline flex items-center">
+                    <FaGithub className="mr-1" /> GitHub
+                  </a>
+                  <a 
+                    href="wanguufaith@gmail.com" 
+                    className="text-blue-500 hover:underline flex items-center">
+                    Email
                   </a>
                 </div>
               </div>
