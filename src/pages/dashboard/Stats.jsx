@@ -38,7 +38,7 @@ const Stats = () => {
       const datePart = dateStr.split(' ')[0]; // Extract the date part (YYYY-MM-DD)
       const yearMonth = datePart.slice(0, 7); // Format: YYYY-MM
 
-      if (row[1] && row[1].toLowerCase().includes('tuberculosis')) {
+      if (row[1] && row[1].toLowerCase().includes('tuberculosis') || row[1] && row[1].toLowerCase().includes('tb') ) {
         counts.Tuberculosis += 1;
         dates.Tuberculosis[yearMonth] = (dates.Tuberculosis[yearMonth] || 0) + 1; // Increment count
       }
