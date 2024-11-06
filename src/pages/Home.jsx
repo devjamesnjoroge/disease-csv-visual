@@ -7,18 +7,18 @@ import analysisImage from '../assets/hex-pattern.jpg';
 import contributor1 from '../assets/contributors2.jpg';
 import contributor2 from '../assets/contributors1.jpg';
 import contributor3 from '../assets/contributors3.jpg';
-
+import contributor4 from '../assets/contributors4.jpg';
 
 function Home() {
   return (
     <div className="bg-secondary min-h-screen flex flex-col text-accent">
       <Navbar />
 
-      <main className="flex-grow max-w-6xl mx-auto px-4 py-12 space-y-12">
+      <main className="flex-grow max-w-6xl mx-auto px-4 py-12 space-y-16">
         
         {/* Hero Section */}
-        <section className="text-center space-y-6 md:space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-accent mb-8">
+        <section className="text-center space-y-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-accent">
             Monitor and Analyze Disease Data
           </h2>
           <p className="text-lg md:text-xl text-text max-w-2xl mx-auto">
@@ -26,7 +26,7 @@ function Home() {
           </p>
           <Link 
             to="/dashboard/upload" 
-            className="inline-block mt-8 bg-primary text-accent px-6 py-3 rounded-lg text-lg font-semibold hover:bg-opacity-80 transition">
+            className="inline-block bg-primary text-accent px-6 py-3 rounded-lg text-lg font-semibold hover:bg-opacity-80 transition">
             Explore the Dashboard
           </Link>
         </section>
@@ -36,9 +36,9 @@ function Home() {
           <img 
             src={analysisImage} 
             alt="Data Analysis" 
-            className="w-full lg:w-1/2 rounded-lg shadow-lg mb-4 lg:mb-0" 
+            className="w-full lg:w-1/2 max-w-xs sm:max-w-md md:max-w-lg lg:max-w-full rounded-lg shadow-lg object-scale-down" 
           />
-          <div className="text-text text-base leading-relaxed space-y-4">
+          <div className="text-text text-base leading-relaxed space-y-4 lg:max-w-lg">
             <p>
               Our platform makes it easy to track and analyze disease cases over time, giving users a clear understanding of trends in Tuberculosis and Flu.
             </p>
@@ -52,90 +52,39 @@ function Home() {
         <section className="space-y-8">
           <h2 className="text-3xl font-bold text-accent text-center">Meet Our Contributors</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
-              <img 
-                src={contributor1} 
-                alt="Amani" 
-                className="rounded-t-lg w-full h-64 object-cover" 
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">Amani</h3>
-                <p className="text-gray-600">Hey, this is Amani</p>
-                <div className="mt-2 flex space-x-4">
-                  <a 
-                    href="https://github.com/AmaniWanene" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-500 hover:underline flex items-center">
-                    <FaGithub className="mr-1" /> GitHub
-                  </a>
-                  <a 
-                    href="mailto:amanigichanga@gmail.com" 
-                    className="text-blue-500 hover:underline flex items-center">
-                    Email
-                  </a>
+            {[{img: contributor1, name: "Amani", github: "https://github.com/AmaniWanene", email: "amanigichanga@gmail.com"},
+              {img: contributor2, name: "Evans", github: "https://github.com/EvansOyugi", linkedin: "https://www.linkedin.com/in/evans-mogere-89396911b/"},
+              {img: contributor3, name: "Faith", github: "https://github.com/faith-watene", linkedin: "https://www.linkedin.com/in/faith-wangui-7a85862b8", email: "wanguufaith@gmail.com"},
+              {img: contributor4, name: "Catherine", github: "https://github.com/Katekui2024", linkedin: "https://www.linkedin.com/in/catherine-njang-ara-a202bb122/", email: "jangkatrina@gmail.com"}].map((contributor, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                <img 
+                  src={contributor.img} 
+                  alt={contributor.name} 
+                  className="rounded-t-lg w-full h-64 object-scale-down" 
+                />
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-semibold text-gray-800">{contributor.name}</h3>
+                  <p className="text-gray-600">Hey, this is {contributor.name}</p>
+                  <div className="mt-4 flex justify-center space-x-4">
+                    {contributor.github && (
+                      <a href={contributor.github} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline flex items-center">
+                        <FaGithub className="mr-1" /> GitHub
+                      </a>
+                    )}
+                    {contributor.linkedin && (
+                      <a href={contributor.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline flex items-center">
+                        <FaLinkedin className="mr-1" /> LinkedIn
+                      </a>
+                    )}
+                    {contributor.email && (
+                      <a href={`mailto:${contributor.email}`} className="text-blue-500 hover:underline flex items-center">
+                        Email
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
-              <img 
-                src={contributor2} 
-                alt="Evans" 
-                className="rounded-t-lg w-full h-64 object-cover" 
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">Evans</h3>
-                <p className="text-gray-600">Hey, this is Evans</p>
-                <div className="mt-2 flex space-x-4">
-                  <a 
-                    href="https://www.linkedin.com/in/evans-mogere-89396911b/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-500 hover:underline flex items-center">
-                    <FaLinkedin className="mr-1" /> LinkedIn
-                  </a>
-                  <a 
-                    href="https://github.com/EvansOyugi" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-500 hover:underline flex items-center">
-                    <FaGithub className="mr-1" /> GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
-              <img 
-                src={contributor3} 
-                alt="Faith" 
-                className="rounded-t-lg w-full h-64 object-cover" 
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">Faith</h3>
-                <p className="text-gray-600">Hey, this is Faith</p>
-                <div className="mt-2 flex space-x-4">
-                  <a 
-                    href="https://www.linkedin.com/in/faith-wangui-7a85862b8" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-500 hover:underline flex items-center">
-                    <FaLinkedin className="mr-1" /> LinkedIn
-                  </a>
-                  <a 
-                    href="https://github.com/faith-watene" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-blue-500 hover:underline flex items-center">
-                    <FaGithub className="mr-1" /> GitHub
-                  </a>
-                  <a 
-                    href="wanguufaith@gmail.com" 
-                    className="text-blue-500 hover:underline flex items-center">
-                    Email
-                  </a>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
       </main>
