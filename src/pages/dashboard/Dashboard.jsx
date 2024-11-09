@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { FaChartLine, FaListAlt, FaUpload, FaBell, FaBars, FaChartBar } from 'react-icons/fa';
 import Overview from './Overview';
 import HighEngagement from './HighEngagement';
@@ -9,6 +9,12 @@ import Graph from './Graph';  // Import the new Graph component
 
 function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  // Function to navigate back to the homepage
+  const goToHome = () => {
+    navigate('/'); // Navigate to the homepage route
+  };
 
   return (
     <div className="flex h-screen bg-secondary text-text">
@@ -35,6 +41,15 @@ function DashboardLayout() {
           <Route path="trends" element={<Trends />} />
           <Route path="graph" element={<Graph />} /> {/* Add Graph route */}
         </Routes>
+      </div>
+
+      {/* Go Back to Home Button */}
+      <div className="absolute top-4 left-4 z-10">
+        <button 
+          onClick={goToHome} 
+          className="bg-primary text-secondary py-2 px-4 rounded-lg shadow-md hover:bg-accent">
+          Go Back to Home
+        </button>
       </div>
     </div>
   );
