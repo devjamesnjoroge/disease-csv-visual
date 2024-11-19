@@ -26,7 +26,7 @@ function UploadCSV() {
         setLoading(true);
         setError('');
 
-        const response = await fetch('https://sd.devjaymmy.me:8443/disease-api/analyze', {
+        const response = await fetch('https://sd.devjaymmy.me:8383/disease-api/analyze', {
             method: 'POST',
             body: formData,
         });
